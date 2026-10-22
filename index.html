@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>G_QR_code | Générateur de QR codes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="box">
+        <header class="header">
+            <h1>G_QR<span>Code</span></h1>
+            <p>Transformez vos liens en QR codes</p>
+        </header>
+
+        <form id="qrForm">
+            <label for="lien">Votre lien</label>
+
+            <input
+                type="url"
+                id="lien"
+                placeholder="https://exemple.com"
+                autocomplete="url"
+                required
+            >
+
+            <div class="options">
+                <div class="option">
+                    <label for="taille">Taille du QR code</label>
+
+                    <select id="taille">
+                        <option value="32">32 × 32 px</option>
+                        <option value="64">64 × 64 px</option>
+                        <option value="128" selected>128 × 128 px</option>
+                        <option value="256">256 × 256 px</option>
+                        <option value="512">512 × 512 px</option>
+                    </select>
+                </div>
+
+                <div class="option">
+                    <label for="format">Format du fichier</label>
+
+                    <select id="format">
+                        <option value="png">PNG</option>
+                        <option value="jpg">JPG</option>
+                        <option value="pdf">PDF</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="generer">
+                Générer le QR code
+            </button>
+        </form>
+
+        <section class="resultat">
+            <h2>Votre QR code</h2>
+
+            <div class="generation" id="generation">
+                <div class="placeholder" id="placeholder">
+                    <span class="qr-icon">▦</span>
+                    <p>Votre QR code apparaîtra ici</p>
+                </div>
+            </div>
+
+            <p class="message" id="message" role="status">
+                Entrez un lien pour commencer.
+            </p>
+
+            <button
+                type="button"
+                id="telecharger"
+                class="download"
+                disabled
+            >
+                ↓ Télécharger mon QR code
+            </button>
+        </section>
+
+        <footer>
+            <p>G_QR_Code · Simple, rapide et pratique</p>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
